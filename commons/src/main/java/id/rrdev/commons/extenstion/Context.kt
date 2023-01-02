@@ -1,4 +1,4 @@
-package id.rrdev.commons.extentions
+package id.rrdev.commons.extenstion
 
 import android.content.Context
 import android.widget.Toast
