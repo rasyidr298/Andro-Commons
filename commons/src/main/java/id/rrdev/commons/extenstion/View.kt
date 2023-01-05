@@ -2,6 +2,7 @@ package id.rrdev.commons.extenstion
 
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputLayout
 
 
 //snacbar
@@ -21,4 +22,13 @@ fun View.show() {
 //hide view
 fun View.hide() {
     visibility = View.GONE
+}
+
+//clear input layout
+fun List<View>.clearErrorInputLayout() {
+    forEach { vi ->
+        if (vi is TextInputLayout) {
+            vi.isErrorEnabled = false
+        }
+    }
 }
