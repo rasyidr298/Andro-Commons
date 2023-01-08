@@ -8,4 +8,6 @@
     <string name="note_user_international_gunakan_ini">Note: International users use this</string>
     <string name="double_click">please DOUBLE CLICK icon !</string>
     <string name="ml_tidak_ada">Mobile Legends game is not on your device..</string>
+    <string name="mohon_cek_koneksi">Please check your connection..</string>
+    <string name="server_error">Server Error, please report it to be fixed immediately!</string>
 </resources>
