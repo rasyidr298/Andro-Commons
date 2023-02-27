@@ -15,7 +15,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.startapp.sdk.adsbase.StartAppAd
 import id.rrdev.commons.model.dataIncome.Admob
-import id.rrdev.commons.utils.PrefManager
+import id.rrdev.commons.utils.abstractt.PrefManager
 
 
 object AdsInterstitial {

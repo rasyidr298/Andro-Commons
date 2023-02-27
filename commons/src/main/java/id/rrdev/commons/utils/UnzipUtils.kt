@@ -4,8 +4,11 @@ import android.util.Log
 import java.io.*
 import java.util.zip.ZipFile
 
-object Unzip {
-    fun unzip(zipFilePath: File, destDirectory: String): Boolean {
+object UnzipUtils {
+    fun unzip(
+        zipFilePath: File,
+        destDirectory: String
+    ): Boolean {
         val destDir = File(destDirectory)
 
         if (!destDir.exists()) {
@@ -37,7 +40,10 @@ object Unzip {
         return true
     }
 
-    private fun extractFile(inputStream: InputStream, destFilePath: String) {
+    private fun extractFile(
+        inputStream: InputStream,
+        destFilePath: String
+    ) {
         val bos = BufferedOutputStream(FileOutputStream(destFilePath))
         val bytesIn = ByteArray(BUFFER_SIZE)
         var read: Int

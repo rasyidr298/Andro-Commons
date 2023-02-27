@@ -7,15 +7,13 @@ import id.rrdev.commons.databinding.ItemEndorseListBinding
 import id.rrdev.commons.extenstion.*
 import id.rrdev.commons.model.dataIncome.Endorse
 import id.rrdev.commons.ui.adapter.OnItemClicked
-import id.rrdev.commons.utils.Analytics
-import id.rrdev.commons.utils.PrefManager
 
 
 class EndorseViewHolderList(
     private val context: Context,
     private val binding: ItemEndorseListBinding
 ) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(onItemClicked: OnItemClicked, data: Endorse, prefManager: PrefManager) {
+    fun bind(onItemClicked: OnItemClicked, data: Endorse) {
         with(binding) {
 
             if (!data.isEnable!!) {
@@ -32,7 +30,6 @@ class EndorseViewHolderList(
 
                 if (data.packageApp != "") {
                     btnInstall.setOnClickListener {
-                        Analytics.trackClick(data.packageApp!!)
                         context.intentToPlaystore(data.packageApp.toString())
                     }
                 } else {
@@ -47,7 +44,6 @@ class EndorseViewHolderList(
                 }
 
                 root.setOnClickListener {
-                    Analytics.trackClick("endorse")
                     if (data.webUrl != "") {
                         context.intentToWeb(data.webUrl.toString())
                     } else {

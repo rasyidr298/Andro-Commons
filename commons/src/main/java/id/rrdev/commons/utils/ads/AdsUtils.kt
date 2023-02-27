@@ -4,8 +4,7 @@ import android.util.Log
 import com.google.android.gms.ads.nativead.NativeAd
 import com.startapp.sdk.ads.nativead.NativeAdDetails
 import id.rrdev.commons.model.dataIncome.Admob
-import id.rrdev.commons.utils.Constants
-import id.rrdev.commons.utils.PrefManager
+import id.rrdev.commons.utils.abstractt.PrefManager
 
 object AdsUtils {
 
@@ -15,7 +14,7 @@ object AdsUtils {
     ): Admob {
         var resultAdmob = Admob()
 
-        prefManager.spGetListAny<List<Admob>>(Constants.spAdmob)?.map {
+        prefManager.spGetAdsAdmob()?.map {
             if (it.name == idName) {
                 resultAdmob = it
             }
@@ -122,7 +121,7 @@ object AdsUtils {
                 }
                 return 4
             }
-            size >= 30 -> {
+            size > 30 -> {
                 if (process == "setAdToList") {
                     if (nativeAdList?.size!! + 1 <= 5) {
                         nativeAdList.add(nativeAd!!)

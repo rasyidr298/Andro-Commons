@@ -99,7 +99,7 @@
                     android:layout_marginEnd="8dp"
                     android:orientation="vertical">
 
-                    <RatingBar
+                    <androidx.appcompat.widget.AppCompatRatingBar
                         android:id="@+id/ad_stars"
                         style="?android:attr/ratingBarStyleSmall"
                         android:layout_width="wrap_content"
