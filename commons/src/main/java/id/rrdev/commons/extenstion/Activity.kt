@@ -2,11 +2,15 @@ package id.rrdev.commons.extenstion
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
+import android.net.Uri
+import android.provider.Settings
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import androidx.core.app.ActivityCompat
 import androidx.core.view.WindowInsetsControllerCompat
 
 //transparans statusbar
@@ -44,4 +48,29 @@ fun Activity.setColorStatusBar(context: Context) {
             ).isAppearanceLightStatusBars = false
         }
     }
+}
+
+
+//to setting apps
+fun Activity.toSetting() {
+    startActivity(
+        Intent(
+            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+            Uri.fromParts("package", this.packageName, null),
+        ),
+    )
+}
+
+//check permission is rationale
+fun Activity.isPermissionRational(permission: String): Boolean =
+    ActivityCompat.shouldShowRequestPermissionRationale(this, permission)
+
+fun Activity.requestPermission(
+    permission: List<String>,
+    requestCode: Int
+) {
+    ActivityCompat.requestPermissions(
+        this, permission.toTypedArray(),
+        requestCode
+    )
 }

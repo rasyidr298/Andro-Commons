@@ -1,4 +1,4 @@
-package id.rrdev.commons.ui.adapter
+package id.rrdev.commons.utils
 
 import androidx.recyclerview.widget.DiffUtil
 

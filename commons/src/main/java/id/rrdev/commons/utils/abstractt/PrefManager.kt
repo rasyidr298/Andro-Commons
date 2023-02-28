@@ -7,11 +7,7 @@ import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.securepreferences.SecurePreferences
-import id.rrdev.commons.model.dataIncome.Admob
-import java.lang.reflect.Type
 
 
 class PrefManager(
@@ -48,21 +44,6 @@ class PrefManager(
 
     val spe: SharedPreferences.Editor by lazy {
         sp.edit()
-    }
-
-    //Pref AdsAdmob Banner
-    fun spSaveAdsAdmob(list: List<Admob>) {
-        val gson = Gson()
-        val json: String = gson.toJson(list)
-        spe.putString("spSaveAdsAdmob", json)
-        spe.apply()
-    }
-
-    fun spGetAdsAdmob(): List<Admob>? {
-        val gson = Gson()
-        val json: String? = sp.getString("spSaveAdsAdmob", "")
-        val type: Type = object : TypeToken<List<Admob?>?>() {}.type
-        return gson.fromJson(json, type)
     }
 
 }
